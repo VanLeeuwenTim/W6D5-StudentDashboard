@@ -4,11 +4,12 @@ import {
   VictoryChart,
   VictoryAxis,
   VictoryGroup,
-  VictoryLine
+  VictoryLine,
+  VictoryContainer
 } from "victory";
 
-const FirstChart = props => {
-  console.log("props.data", props.data);
+const HomeCharts = props => {
+  // console.log("props.data", props.data);
 
   //   const exercisesArray = props.data.filter(obj => {
   //     return result;
@@ -33,12 +34,12 @@ const FirstChart = props => {
   //   console.log("calculateAvg", calculateAvg());
 
   const exerciseNames = props.data.map(item => item.exercise);
-  console.log("exerciseNames", exerciseNames);
+  // console.log("exerciseNames", exerciseNames);
   const uniqueExerciseNames = exerciseNames.filter((name, index, names) => {
     // Truc om dubbele namen er uit te filteren
     return names.indexOf(name) === index;
   });
-  console.log("uniqueExerciseNames", uniqueExerciseNames);
+  // console.log("uniqueExerciseNames", uniqueExerciseNames);
   const exerciseAverages = uniqueExerciseNames.map(name => {
     const exerciseValues = props.data.filter(item => item.exercise === name);
     const difficultyAverage =
@@ -56,7 +57,11 @@ const FirstChart = props => {
 
   return (
     <div>
-      <VictoryChart domainPadding={20}>
+      <VictoryChart
+        domainPadding={20}
+        width={400}
+        containerComponent={<VictoryContainer responsive={false} />}
+      >
         <VictoryGroup offset={20}>
           <VictoryBar
             data={exerciseAverages}
@@ -68,7 +73,10 @@ const FirstChart = props => {
         <VictoryAxis />
         <VictoryAxis dependentAxis tickValues={[1, 2, 3, 4, 5]} />
       </VictoryChart>
-      <VictoryChart>
+      <VictoryChart
+        width={400}
+        containerComponent={<VictoryContainer responsive={false} />}
+      >
         <VictoryGroup>
           <VictoryLine
             data={exerciseAverages}
@@ -84,4 +92,4 @@ const FirstChart = props => {
   );
 };
 
-export default FirstChart;
+export default HomeCharts;

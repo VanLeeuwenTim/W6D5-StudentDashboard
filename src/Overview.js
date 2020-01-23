@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Data from "./Data";
-import FirstChart from "./FirstChart";
+import HomeCharts from "./HomeCharts";
+import Checkbox from "./Checkbox";
 
 class Overview extends Component {
   constructor() {
@@ -14,7 +15,8 @@ class Overview extends Component {
     return (
       <div>
         <h1>Overview landingpage</h1>
-        <FirstChart data={this.state.inputData} />
+        <HomeCharts data={this.state.inputData} />
+        <Checkbox />
       </div>
     );
   }
