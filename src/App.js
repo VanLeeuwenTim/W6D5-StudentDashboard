@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "./Container";
+import Overview from "./Overview";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const App = () => (
@@ -22,7 +22,7 @@ const App = () => (
         </Route>
 
         <Route path="/">
-          <Container />
+          <Overview />
         </Route>
       </Switch>
     </div>
