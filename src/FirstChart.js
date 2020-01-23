@@ -1,5 +1,11 @@
 import React from "react";
-import { VictoryBar, VictoryChart, VictoryAxis, VictoryGroup } from "victory";
+import {
+  VictoryBar,
+  VictoryChart,
+  VictoryAxis,
+  VictoryGroup,
+  VictoryLine
+} from "victory";
 
 const FirstChart = props => {
   console.log("props.data", props.data);
@@ -49,18 +55,32 @@ const FirstChart = props => {
   });
 
   return (
-    <VictoryChart domainPadding={20}>
-      <VictoryGroup offset={20}>
-        <VictoryBar
-          data={exerciseAverages}
-          x="exercise"
-          y="difficultyAverage"
-        />
-        <VictoryBar data={exerciseAverages} x="exercise" y="funAverage" />
-      </VictoryGroup>
-      <VictoryAxis />
-      <VictoryAxis dependentAxis tickValues={[1, 2, 3, 4, 5]} />
-    </VictoryChart>
+    <div>
+      <VictoryChart domainPadding={20}>
+        <VictoryGroup offset={20}>
+          <VictoryBar
+            data={exerciseAverages}
+            x="exercise"
+            y="difficultyAverage"
+          />
+          <VictoryBar data={exerciseAverages} x="exercise" y="funAverage" />
+        </VictoryGroup>
+        <VictoryAxis />
+        <VictoryAxis dependentAxis tickValues={[1, 2, 3, 4, 5]} />
+      </VictoryChart>
+      <VictoryChart>
+        <VictoryGroup>
+          <VictoryLine
+            data={exerciseAverages}
+            x="exercise"
+            y="difficultyAverage"
+          />
+          <VictoryLine data={exerciseAverages} x="exercise" y="funAverage" />
+        </VictoryGroup>
+        <VictoryAxis />
+        <VictoryAxis dependentAxis tickValues={[1, 2, 3, 4, 5]} />
+      </VictoryChart>
+    </div>
   );
 };
 
