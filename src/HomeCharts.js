@@ -10,7 +10,7 @@ import {
 
 const HomeCharts = props => {
   const exerciseNames = props.data.map(item => item.exercise);
-
+  console.log(exerciseNames);
   const uniqueExerciseNames = exerciseNames.filter((name, index, names) => {
     // Truc om dubbele namen er uit te filteren
     return names.indexOf(name) === index;
@@ -18,6 +18,7 @@ const HomeCharts = props => {
 
   const exerciseAverages = uniqueExerciseNames.map(name => {
     const exerciseValues = props.data.filter(item => item.exercise === name);
+    console.log("exerciseValues", exerciseValues);
     const difficultyAverage =
       exerciseValues.reduce((prev, curr) => prev + curr.howDifficult, 0) /
       exerciseValues.length;

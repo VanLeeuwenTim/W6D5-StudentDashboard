@@ -9,15 +9,11 @@ import {
 } from "victory";
 
 const StudentCharts = props => {
-  console.log("props.data", props.data);
-  console.log("props.value", props.value);
-  // maak van alle data een array met de namen
   const studentNameArray = name => {
     return props.data.filter(item => {
       return item.studentName === name;
     });
   };
-  console.log("studentNameArray", studentNameArray("Aranka"));
 
   return (
     <div>
@@ -28,11 +24,23 @@ const StudentCharts = props => {
       >
         <VictoryGroup offset={20}>
           <VictoryBar
+            style={{
+              data: {
+                visibility: props.checkboxValue.fun ? "visible" : "hidden"
+              }
+            }}
             data={studentNameArray(props.value)}
             x="exercise"
             y="howNice"
           />
           <VictoryBar
+            style={{
+              data: {
+                visibility: props.checkboxValue.difficulty
+                  ? "visible"
+                  : "hidden"
+              }
+            }}
             data={studentNameArray(props.value)}
             x="exercise"
             y="howDifficult"
@@ -47,11 +55,23 @@ const StudentCharts = props => {
       >
         <VictoryGroup>
           <VictoryLine
+            style={{
+              data: {
+                visibility: props.checkboxValue.fun ? "visible" : "hidden"
+              }
+            }}
             data={studentNameArray(props.value)}
             x="exercise"
             y="howNice"
           />
           <VictoryLine
+            style={{
+              data: {
+                visibility: props.checkboxValue.difficulty
+                  ? "visible"
+                  : "hidden"
+              }
+            }}
             data={studentNameArray(props.value)}
             x="exercise"
             y="howDifficult"
