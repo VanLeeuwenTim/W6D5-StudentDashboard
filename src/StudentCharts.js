@@ -9,27 +9,15 @@ import {
 } from "victory";
 
 const StudentCharts = props => {
-  const exerciseNames = props.data.map(item => item.exercise);
-
-  const uniqueExerciseNames = exerciseNames.filter((name, index, names) => {
-    // Truc om dubbele namen er uit te filteren
-    return names.indexOf(name) === index;
-  });
-
-  const exerciseAverages = uniqueExerciseNames.map(name => {
-    const exerciseValues = props.data.filter(item => item.exercise === name);
-    const difficultyAverage =
-      exerciseValues.reduce((prev, curr) => prev + curr.howDifficult, 0) /
-      exerciseValues.length;
-    const funAverage =
-      exerciseValues.reduce((prev, curr) => prev + curr.howNice, 0) /
-      exerciseValues.length;
-    return {
-      exercise: name,
-      difficultyAverage: difficultyAverage,
-      funAverage: funAverage
-    };
-  });
+  console.log("props.data", props.data);
+  console.log("props.value", props.value);
+  // maak van alle data een array met de namen
+  const studentNameArray = name => {
+    return props.data.filter(item => {
+      return item.studentName === name;
+    });
+  };
+  console.log("studentNameArray", studentNameArray("Aranka"));
 
   return (
     <div>
@@ -40,26 +28,14 @@ const StudentCharts = props => {
       >
         <VictoryGroup offset={20}>
           <VictoryBar
-          // style={{
-          //   data: {
-          //     visibility: props.checkboxValue.difficulty
-          //       ? "visible"
-          //       : "hidden"
-          //   }
-          // }}
-          // data={exerciseAverages}
-          // x="exercise"
-          // y="difficultyAverage"
+            data={studentNameArray(props.value)}
+            x="exercise"
+            y="howNice"
           />
           <VictoryBar
-          //     style={{
-          //       data: {
-          //         visibility: props.checkboxValue.fun ? "visible" : "hidden"
-          //       }
-          //     }}
-          //     data={exerciseAverages}
-          //     x="exercise"
-          //     y="funAverage"
+            data={studentNameArray(props.value)}
+            x="exercise"
+            y="howDifficult"
           />
         </VictoryGroup>
         <VictoryAxis />
@@ -71,26 +47,14 @@ const StudentCharts = props => {
       >
         <VictoryGroup>
           <VictoryLine
-          // style={{
-          //   data: {
-          //     visibility: props.checkboxValue.difficulty
-          //       ? "visible"
-          //       : "hidden"
-          //   }
-          // }}
-          // data={exerciseAverages}
-          // x="exercise"
-          // y="difficultyAverage"
+            data={studentNameArray(props.value)}
+            x="exercise"
+            y="howNice"
           />
           <VictoryLine
-          // style={{
-          //   data: {
-          //     visibility: props.checkboxValue.fun ? "visible" : "hidden"
-          //   }
-          // }}
-          // data={exerciseAverages}
-          // x="exercise"
-          // y="funAverage"
+            data={studentNameArray(props.value)}
+            x="exercise"
+            y="howDifficult"
           />
         </VictoryGroup>
         <VictoryAxis />

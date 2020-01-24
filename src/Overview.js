@@ -22,7 +22,6 @@ class Overview extends Component {
 
     this.setState(prevState => {
       const checkboxValue = prevState.checkboxValue;
-      console.log(inputValue);
       checkboxValue[inputName] = inputValue;
       return {
         checkboxValue: checkboxValue
