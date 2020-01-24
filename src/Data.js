@@ -106,6 +106,18 @@ const Data = [
     exercise: "W1D2-5",
     howNice: 1,
     howDifficult: 3
+  },
+  {
+    studentName: "Floris",
+    exercise: "W1D3-1",
+    howNice: 2,
+    howDifficult: 4
+  },
+  {
+    studentName: "Floris",
+    exercise: "W1D3-2",
+    howNice: 3,
+    howDifficult: 5
   }
 ];
 

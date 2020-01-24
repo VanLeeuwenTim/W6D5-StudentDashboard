@@ -5,7 +5,7 @@ import {
   VictoryAxis,
   VictoryGroup,
   VictoryLine,
-  VictoryContainer
+  VictoryZoomContainer
 } from "victory";
 
 const StudentCharts = props => {
@@ -18,9 +18,13 @@ const StudentCharts = props => {
   return (
     <div>
       <VictoryChart
+        width={800}
+        height={400}
         domainPadding={20}
-        width={400}
-        containerComponent={<VictoryContainer responsive={false} />}
+        animate={{ duration: 1000, easing: "bounce" }}
+        containerComponent={
+          <VictoryZoomContainer zoomDimension={"x"} responsive={false} />
+        }
       >
         <VictoryGroup offset={20}>
           <VictoryBar
@@ -50,8 +54,13 @@ const StudentCharts = props => {
         <VictoryAxis dependentAxis tickValues={[1, 2, 3, 4, 5]} />
       </VictoryChart>
       <VictoryChart
-        width={400}
-        containerComponent={<VictoryContainer responsive={false} />}
+        width={800}
+        height={400}
+        domainPadding={20}
+        animate={{ duration: 1000, easing: "bounce" }}
+        containerComponent={
+          <VictoryZoomContainer zoomDimension={"x"} responsive={false} />
+        }
       >
         <VictoryGroup>
           <VictoryLine
