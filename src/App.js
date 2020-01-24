@@ -1,6 +1,7 @@
 import React from "react";
 import Overview from "./Overview";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import StudentsOverview from "./StudentsOverview";
 
 const App = () => (
   <Router>
@@ -11,14 +12,14 @@ const App = () => (
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/students">Students</Link>
           </li>
         </ul>
       </nav>
 
       <Switch>
-        <Route path="/about">
-          <About />
+        <Route path="/students">
+          <StudentsOverview />
         </Route>
 
         <Route path="/">
@@ -27,13 +28,6 @@ const App = () => (
       </Switch>
     </div>
   </Router>
-);
-
-const About = () => (
-  <div>
-    <h2>About</h2>
-    <p>Hallo en welkom op mijn mooie studentdashboard</p>
-  </div>
 );
 
 export default App;

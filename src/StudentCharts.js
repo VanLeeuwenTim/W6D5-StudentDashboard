@@ -8,7 +8,7 @@ import {
   VictoryContainer
 } from "victory";
 
-const HomeCharts = props => {
+const StudentCharts = props => {
   const exerciseNames = props.data.map(item => item.exercise);
 
   const uniqueExerciseNames = exerciseNames.filter((name, index, names) => {
@@ -40,26 +40,26 @@ const HomeCharts = props => {
       >
         <VictoryGroup offset={20}>
           <VictoryBar
-            style={{
-              data: {
-                visibility: props.checkboxValue.difficulty
-                  ? "visible"
-                  : "hidden"
-              }
-            }}
-            data={exerciseAverages}
-            x="exercise"
-            y="difficultyAverage"
+          // style={{
+          //   data: {
+          //     visibility: props.checkboxValue.difficulty
+          //       ? "visible"
+          //       : "hidden"
+          //   }
+          // }}
+          // data={exerciseAverages}
+          // x="exercise"
+          // y="difficultyAverage"
           />
           <VictoryBar
-            style={{
-              data: {
-                visibility: props.checkboxValue.fun ? "visible" : "hidden"
-              }
-            }}
-            data={exerciseAverages}
-            x="exercise"
-            y="funAverage"
+          //     style={{
+          //       data: {
+          //         visibility: props.checkboxValue.fun ? "visible" : "hidden"
+          //       }
+          //     }}
+          //     data={exerciseAverages}
+          //     x="exercise"
+          //     y="funAverage"
           />
         </VictoryGroup>
         <VictoryAxis />
@@ -71,26 +71,26 @@ const HomeCharts = props => {
       >
         <VictoryGroup>
           <VictoryLine
-            style={{
-              data: {
-                visibility: props.checkboxValue.difficulty
-                  ? "visible"
-                  : "hidden"
-              }
-            }}
-            data={exerciseAverages}
-            x="exercise"
-            y="difficultyAverage"
+          // style={{
+          //   data: {
+          //     visibility: props.checkboxValue.difficulty
+          //       ? "visible"
+          //       : "hidden"
+          //   }
+          // }}
+          // data={exerciseAverages}
+          // x="exercise"
+          // y="difficultyAverage"
           />
           <VictoryLine
-            style={{
-              data: {
-                visibility: props.checkboxValue.fun ? "visible" : "hidden"
-              }
-            }}
-            data={exerciseAverages}
-            x="exercise"
-            y="funAverage"
+          // style={{
+          //   data: {
+          //     visibility: props.checkboxValue.fun ? "visible" : "hidden"
+          //   }
+          // }}
+          // data={exerciseAverages}
+          // x="exercise"
+          // y="funAverage"
           />
         </VictoryGroup>
         <VictoryAxis />
@@ -100,4 +100,4 @@ const HomeCharts = props => {
   );
 };
 
-export default HomeCharts;
+export default StudentCharts;

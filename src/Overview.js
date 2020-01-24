@@ -20,8 +20,8 @@ class Overview extends Component {
     const inputName = event.target.name;
     const inputValue = event.target.checked;
 
-    this.setState(state => {
-      const checkboxValue = state.checkboxValue;
+    this.setState(prevState => {
+      const checkboxValue = prevState.checkboxValue;
       console.log(inputValue);
       checkboxValue[inputName] = inputValue;
       return {
@@ -33,13 +33,13 @@ class Overview extends Component {
   render() {
     return (
       <div>
-        <h1>Overview landingpage</h1>
-        <HomeCharts
-          data={this.state.inputData}
-          checkboxValue={this.state.checkboxValue}
-        />
+        <h1>Overview</h1>
         <Checkbox
           handleChecked={this.handleChecked}
+          checkboxValue={this.state.checkboxValue}
+        />
+        <HomeCharts
+          data={this.state.inputData}
           checkboxValue={this.state.checkboxValue}
         />
       </div>
