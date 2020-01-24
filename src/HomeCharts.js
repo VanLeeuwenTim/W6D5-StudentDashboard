@@ -65,11 +65,27 @@ const HomeCharts = props => {
       >
         <VictoryGroup offset={20}>
           <VictoryBar
+            style={{
+              data: {
+                visibility: props.checkboxValue.difficulty
+                  ? "visible"
+                  : "hidden"
+              }
+            }}
             data={exerciseAverages}
             x="exercise"
             y="difficultyAverage"
           />
-          <VictoryBar data={exerciseAverages} x="exercise" y="funAverage" />
+          <VictoryBar
+            style={{
+              data: {
+                visibility: props.checkboxValue.fun ? "visible" : "hidden"
+              }
+            }}
+            data={exerciseAverages}
+            x="exercise"
+            y="funAverage"
+          />
         </VictoryGroup>
         <VictoryAxis />
         <VictoryAxis dependentAxis tickValues={[1, 2, 3, 4, 5]} />
@@ -80,12 +96,27 @@ const HomeCharts = props => {
       >
         <VictoryGroup>
           <VictoryLine
-            style={{ data: { visibility: "visible" } }}
+            style={{
+              data: {
+                visibility: props.checkboxValue.difficulty
+                  ? "visible"
+                  : "hidden"
+              }
+            }}
             data={exerciseAverages}
             x="exercise"
             y="difficultyAverage"
           />
-          <VictoryLine data={exerciseAverages} x="exercise" y="funAverage" />
+          <VictoryLine
+            style={{
+              data: {
+                visibility: props.checkboxValue.fun ? "visible" : "hidden"
+              }
+            }}
+            data={exerciseAverages}
+            x="exercise"
+            y="funAverage"
+          />
         </VictoryGroup>
         <VictoryAxis />
         <VictoryAxis dependentAxis tickValues={[1, 2, 3, 4, 5]} />
