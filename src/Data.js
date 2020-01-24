@@ -114,7 +114,7 @@ const Data = [
     howDifficult: 4
   },
   {
-    studentName: "Floris",
+    studentName: "Pietje",
     exercise: "W1D3-2",
     howNice: 3,
     howDifficult: 5
