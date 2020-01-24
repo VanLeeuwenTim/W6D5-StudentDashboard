@@ -7,6 +7,7 @@ import {
   VictoryLine,
   VictoryContainer
 } from "victory";
+import Checkbox from "./Checkbox";
 
 const HomeCharts = props => {
   // console.log("props.data", props.data);
@@ -79,6 +80,7 @@ const HomeCharts = props => {
       >
         <VictoryGroup>
           <VictoryLine
+            style={{ data: { visibility: "visible" } }}
             data={exerciseAverages}
             x="exercise"
             y="difficultyAverage"
